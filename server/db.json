@@ -1,0 +1,45 @@
+{
+  "goals": [],
+  "users": [
+    {
+      "id": 1,
+      "displayName": "Adele Vance",
+      "img": "https://teamblee.blob.core.windows.net/teamblee/avatar-adele.jpeg"
+    },
+    {
+      "id": 2,
+      "displayName": "Alex Wilber",
+      "img": "https://teamblee.blob.core.windows.net/teamblee/avatar-alex.jpeg"
+    },
+    {
+      "id": 3,
+      "displayName": "Patti Fernandes",
+      "img": "https://teamblee.blob.core.windows.net/teamblee/avatar-patti.jpeg"
+    },
+    {
+      "id": 4,
+      "displayName": "Grady Archie",
+      "img": "https://teamblee.blob.core.windows.net/teamblee/avatar-grady.jpeg"
+    },
+    {
+      "id": 5,
+      "displayName": "Isaiah Langer",
+      "img": "https://teamblee.blob.core.windows.net/teamblee/avatar-isa.jpeg"
+    },
+    {
+      "id": 6,
+      "displayName": "Lee Gu",
+      "img": "https://teamblee.blob.core.windows.net/teamblee/avatar-lee.jpeg"
+    },
+    {
+      "id": 7,
+      "displayName": "Miriam Graham",
+      "img": "https://teamblee.blob.core.windows.net/teamblee/avatar-miriam.jpeg"
+    },
+    {
+      "id": 8,
+      "displayName": "Diego Sciliani",
+      "img": "https://teamblee.blob.core.windows.net/teamblee/avatar-diego.jpeg"
+    }
+  ]
+}
