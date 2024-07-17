@@ -1,5 +1,5 @@
-function App() {
-  return <div className="App">init</div>;
-}
+import { Layout } from "./components";
 
-export default App;
+export default function App() {
+  return <Layout>test</Layout>;
+}

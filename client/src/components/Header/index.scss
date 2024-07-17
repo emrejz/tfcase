@@ -1,0 +1,23 @@
+.header {
+  height: 66px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  box-shadow: 0px 1px 0px #eff1f5;
+
+  .logo {
+    width: 141px;
+    height: 34px;
+    cursor: pointer;
+  }
+
+  .right-box {
+    display: flex;
+    gap: 8px;
+    svg {
+      cursor: pointer;
+    }
+  }
+}
