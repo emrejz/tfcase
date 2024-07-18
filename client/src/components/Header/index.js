@@ -1,12 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Back, Close, Qm, Settings } from "../../svgs";
 import { routePaths } from "../../constants/routes";
 import "./index.scss";
 
-export default function Index() {
-  const { pathname } = useLocation();
-  const isNewGoalPage = routePaths.newGoal === pathname;
-
+export default function Index({ isNewGoalPage }) {
   if (isNewGoalPage) {
     return (
       <header className="header">

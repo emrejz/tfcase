@@ -1,13 +1,17 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Header, SideMenu } from "../index.js";
+import { routePaths } from "../../constants/routes.js";
 import "./index.scss";
 
-export default function Index({ children }) {
+export default function Index() {
+  const { pathname } = useLocation();
+  const isNewGoalPage = routePaths.newGoal === pathname;
+
   return (
     <div className="layout">
-      <Header />
+      <Header isNewGoalPage={isNewGoalPage} />
       <main className="main">
-        <SideMenu />
+        {!isNewGoalPage && <SideMenu />}
         <Outlet />
       </main>
     </div>
