@@ -24,7 +24,7 @@ export default function Index({ isNewGoalPage }) {
 
   return (
     <header className="header">
-      <img className="logo" alt="logo" src="./assets/images/logo.png" />
+      <img className="logo" alt="logo" src="/assets/images/logo.png" />
       <div className="right-box">
         <Qm />
         <Settings />

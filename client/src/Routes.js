@@ -3,8 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "./components";
 import { routePaths } from "./constants/routes";
 
-const Goals = lazy(() =>
-  import("./pages").then((module) => ({ default: module.Goals }))
+const GoalList = lazy(() =>
+  import("./pages").then((module) => ({ default: module.GoalList }))
+);
+const NewGoal = lazy(() =>
+  import("./pages").then((module) => ({ default: module.NewGoal }))
 );
 const NotFound = lazy(() =>
   import("./pages").then((module) => ({ default: module.NotFound }))
@@ -16,7 +19,8 @@ export default function Index() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path={routePaths.goals} element={<Goals />}></Route>
+            <Route path={routePaths.goals} element={<GoalList />}></Route>
+            <Route path={routePaths.newGoal} element={<NewGoal />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Route>
         </Routes>

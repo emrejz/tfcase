@@ -5,7 +5,7 @@ import { routePaths } from "../../constants/routes";
 
 export default function Index() {
   return (
-    <div className="container">
+    <div className="not-found-container">
       <h2>page not found</h2>
       <Link to={routePaths.home}>
         <Button>back to home</Button>
