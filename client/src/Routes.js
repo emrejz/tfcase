@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "./components";
+import { routePaths } from "./constants/routes";
 
 const Goals = lazy(() =>
   import("./pages").then((module) => ({ default: module.Goals }))
@@ -15,7 +16,7 @@ export default function Index() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="goals" element={<Goals />}></Route>
+            <Route path={routePaths.goals} element={<Goals />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Route>
         </Routes>

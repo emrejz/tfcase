@@ -8,40 +8,51 @@ import {
   Reports,
 } from "../svgs";
 
+export const routePaths = {
+  home: "/home",
+  surveys: "/surveys",
+  feedback: "/feedback",
+  goals: "/goals",
+  newGoal: "/goals/new",
+  oneVOne: "/one-v-one",
+  goodVibes: "/good-vibes",
+  reports: "/reports",
+};
+
 export const sideMenuRoutes = [
   {
     icon: Home,
     label: "Home",
-    path: "/home",
+    path: routePaths.home,
   },
   {
     icon: Surveys,
     label: "Surveys",
-    path: "/surveys",
+    path: routePaths.surveys,
   },
   {
     icon: Feedback,
     label: "Feedback",
-    path: "/feedback",
+    path: routePaths.feedback,
   },
   {
     icon: Goals,
     label: "Goals",
-    path: "/goals",
+    path: routePaths.goals,
   },
   {
     icon: OneVOne,
     label: "OneVOne",
-    path: "/one-v-one",
+    path: routePaths.oneVOne,
   },
   {
     icon: GoodVibes,
     label: "Good Vibes",
-    path: "/good-vibes",
+    path: routePaths.goodVibes,
   },
   {
     icon: Reports,
     label: "Reports",
-    path: "/reports",
+    path: routePaths.reports,
   },
 ];
