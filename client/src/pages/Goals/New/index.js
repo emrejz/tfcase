@@ -41,7 +41,8 @@ export default function Index() {
   const onFinish = async (values) => {
     try {
       setLoading(true);
-      await postGoal(values);
+      const ownerImg = users.find((item) => item.id === values.owner)?.img;
+      await postGoal({ ...values, ownerImg });
       navigate(routePaths.goals);
     } catch (error) {
       alert(error.message);

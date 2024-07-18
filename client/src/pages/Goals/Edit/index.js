@@ -55,7 +55,8 @@ export default function Index() {
   const onFinish = async (values) => {
     try {
       setLoading(true);
-      await editGoal(goal?.id, values);
+      const ownerImg = users.find((item) => item.id === values.owner)?.img;
+      await editGoal(goal?.id, { ...values, ownerImg });
       navigate(routePaths.goals);
     } catch (error) {
       alert(error.message);

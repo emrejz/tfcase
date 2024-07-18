@@ -1,0 +1,132 @@
+.goal-list-container {
+  overflow: auto;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding-left: 32px;
+  padding-right: 32px;
+  .head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+
+    div {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 21px;
+      line-height: 28px;
+      color: #233043;
+    }
+  }
+  .list-type {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 0px;
+    div {
+      display: flex;
+      align-items: center;
+      padding: 7.5px 17px 7.5px 17px;
+      gap: 3px;
+      height: 32px;
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid #d5d9de;
+      border-radius: 4px;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+
+      * {
+        color: #233043;
+        stroke: #233043;
+      }
+    }
+    .selected {
+      border-color: #1053ff;
+      background-color: #d5e0f7;
+      * {
+        color: #1053ff;
+
+        stroke: #1053ff;
+      }
+    }
+  }
+  .goal-list {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .item {
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .left-side {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        img {
+          width: 24px;
+          height: 24px;
+          border-radius: 4px;
+        }
+        .title {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 15px;
+          line-height: 20px;
+          color: #233043;
+        }
+      }
+    }
+    .right-side {
+      margin-left: auto;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      .progress {
+        width: 100px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #606b79;
+      }
+      .on-track {
+        white-space: nowrap;
+        padding: 4px 9px 4px;
+        height: 24px;
+        background: #c1d3fe;
+        border-radius: 42px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #0c46d0;
+      }
+      .time-div {
+        white-space: nowrap;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #606b79;
+      }
+      svg {
+        min-width: 24px;
+      }
+    }
+  }
+}

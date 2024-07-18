@@ -90,7 +90,9 @@
   }
   .timeline {
     display: flex;
-    gap: 73px;
+    flex-wrap: wrap;
+    row-gap: 0px;
+    column-gap: 73px;
     * {
       border: none;
     }
