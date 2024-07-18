@@ -12,7 +12,7 @@ export const sideMenuRoutes = [
   {
     icon: Home,
     label: "Home",
-    path: "/",
+    path: "/home",
   },
   {
     icon: Surveys,

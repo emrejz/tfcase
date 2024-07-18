@@ -1,13 +1,16 @@
 .list {
   list-style-type: none;
   padding: 0;
-  padding-left: 16px;
+
+  a {
+    text-decoration: none;
+  }
 
   li {
     display: flex;
     align-items: center;
     gap: 16px;
-    // font-family: "Inter";
+    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -15,5 +18,29 @@
     color: #606b79;
     height: 40px;
     cursor: pointer;
+  }
+
+  .box {
+    width: 4px;
+    height: 100%;
+    background-color: transparent;
+  }
+  .blue {
+    color: #1053ff;
+    .box {
+      background-color: #1053ff;
+    }
+    svg {
+      fill: #1053ff;
+      * {
+        fill: #1053ff;
+      }
+    }
+  }
+  svg {
+    fill: #838b95;
+    * {
+      fill: #838b95;
+    }
   }
 }

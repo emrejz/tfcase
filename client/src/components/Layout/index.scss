@@ -1,5 +1,8 @@
-.main {
-  display: flex;
-  height: 100%;
-  flex-wrap: wrap;
+.layout {
+  height: calc(100dvh - 66px);
+
+  .main {
+    display: flex;
+    height: 100%;
+  }
 }

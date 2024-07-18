@@ -1,5 +1,5 @@
-import { Layout } from "./components";
+import Routes from "./Routes";
 
 export default function App() {
-  return <Layout>test</Layout>;
+  return <Routes />;
 }
