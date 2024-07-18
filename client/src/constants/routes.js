@@ -14,6 +14,7 @@ export const routePaths = {
   feedback: "/feedback",
   goals: "/goals",
   newGoal: "/goals/new",
+  editGoal: "/goals/edit",
   oneVOne: "/one-v-one",
   goodVibes: "/good-vibes",
   reports: "/reports",

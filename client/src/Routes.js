@@ -9,6 +9,9 @@ const GoalList = lazy(() =>
 const NewGoal = lazy(() =>
   import("./pages").then((module) => ({ default: module.NewGoal }))
 );
+const EditGoal = lazy(() =>
+  import("./pages").then((module) => ({ default: module.EditGoal }))
+);
 const NotFound = lazy(() =>
   import("./pages").then((module) => ({ default: module.NotFound }))
 );
@@ -21,6 +24,7 @@ export default function Index() {
           <Route path="/" element={<Layout />}>
             <Route path={routePaths.goals} element={<GoalList />}></Route>
             <Route path={routePaths.newGoal} element={<NewGoal />}></Route>
+            <Route path={routePaths.editGoal} element={<EditGoal />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Route>
         </Routes>
