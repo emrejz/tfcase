@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "../../../components";
+import { routePaths } from "../../../constants/routes";
 import "./index.scss";
 
 export default function Index() {
@@ -12,7 +13,9 @@ export default function Index() {
         Need help? Check out <Link>how it works</Link> for more tips or{" "}
         <Link>send us a message</Link>
       </div>
-      <Button>New goal</Button>
+      <Link to={routePaths.newGoal}>
+        <Button>New goal</Button>
+      </Link>
     </div>
   );
 }

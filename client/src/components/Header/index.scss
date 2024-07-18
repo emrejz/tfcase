@@ -7,6 +7,29 @@
   background: #ffffff;
   box-shadow: 0px 1px 0px #eff1f5;
 
+  .left-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    svg {
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+      min-height: 24px;
+    }
+
+    .title {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      color: #233043;
+      border-left: 1px solid #d5d9de;
+      padding-left: 16px;
+    }
+  }
+
   .logo {
     width: 141px;
     height: 34px;
