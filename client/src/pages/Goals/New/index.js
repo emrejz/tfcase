@@ -1,10 +1,35 @@
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { DatePicker, Form, Input, Select } from "antd";
 import { Box, Button } from "../../../components";
-import { progressOptions } from "../utils";
+import { getUsers, getGoals, postGoal } from "../../../services";
+import { routePaths } from "../../../constants/routes";
 import "./index.scss";
 
 export default function Index() {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
+  const [users, setUsers] = useState();
+  const [goals, setGoals] = useState();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [userData, goalData] = await Promise.all([
+          getUsers(),
+          getGoals(),
+        ]);
+
+        setGoals(goalData);
+        setUsers(userData);
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const onOwnerChange = (value) => {
     form.setFieldsValue({ owner: value });
@@ -13,8 +38,16 @@ export default function Index() {
     form.setFieldsValue({ parent: value });
   };
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const onFinish = async (values) => {
+    try {
+      setLoading(true);
+      await postGoal(values);
+      navigate(routePaths.goals);
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -50,30 +83,20 @@ export default function Index() {
               },
             ]}
           >
-            <Input placeholder="Add goal title" />
+            <Input disabled={loading} placeholder="Add goal title" />
           </Form.Item>
           <Form.Item className="goal-desc-input" name="desc">
-            <Input placeholder="Add a description" />
+            <Input disabled={loading} placeholder="Add a description" />
           </Form.Item>
         </Box>
         <Box className="box2">
           <div className="goal-owner-label">Goal owner</div>
           <Form.Item className="goal-owner-select" name="owner">
             <Select
+              disabled={loading}
+              loading={!users}
               onChange={onOwnerChange}
-              style={{ width: "100%" }}
-              options={[
-                {
-                  id: 1,
-                  displayName: "Adele Vance",
-                  img: "https://teamblee.blob.core.windows.net/teamblee/avatar-adele.jpeg",
-                },
-                {
-                  id: 2,
-                  displayName: "Alex Wilber",
-                  img: "https://teamblee.blob.core.windows.net/teamblee/avatar-alex.jpeg",
-                },
-              ].map((item) => ({
+              options={users?.map((item) => ({
                 ...item,
                 value: item.id,
                 label: (
@@ -116,32 +139,29 @@ export default function Index() {
           <div className="goal-time-label">Timeline</div>
           <div className="timeline">
             <Form.Item name="startDate">
-              <DatePicker placeholder="Start date" />
+              <DatePicker disabled={loading} placeholder="Start date" />
             </Form.Item>
             <Form.Item name="endDate">
-              <DatePicker placeholder="End date" />
+              <DatePicker disabled={loading} placeholder="End date" />
             </Form.Item>
           </div>
           <div className="goal-time-label">Parent goal</div>
           <Form.Item className="goal-owner-select" name="parent">
             <Select
+              disabled={loading}
               onChange={onParentChange}
-              style={{ width: "100%" }}
-              options={[
-                {
-                  id: 1,
-                  title: "Adele Vance",
-                },
-                {
-                  id: 2,
-                  title: "Alex Wilber",
-                },
-              ].map((item) => ({ value: item.id, label: item.title }))}
+              loading={!goals}
+              options={goals?.map((item) => ({
+                value: item.id,
+                label: item.title,
+              }))}
             />
           </Form.Item>
         </Box>
         <Box className="form-footer">
-          <Button htmlType="submit">Publish</Button>
+          <Button disabled={loading} htmlType="submit">
+            Publish
+          </Button>
         </Box>
       </Form>
     </div>
