@@ -36,3 +36,14 @@ export const editGoal = async (id, data) => {
   });
   return await rawResponse.json();
 };
+
+export const removeGoal = async (id) => {
+  const rawResponse = await fetch("http://localhost:3003/goals/" + id, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+  return await rawResponse.json();
+};

@@ -6,8 +6,7 @@ import "./index.scss";
 export default function Index() {
   const { pathname } = useLocation();
   const isNewGoalPage =
-    routePaths.newGoal === pathname ||
-    pathname.startsWith(routePaths.editGoalWithoutID);
+    routePaths.newGoal === pathname || pathname.startsWith(routePaths.editGoal);
 
   return (
     <div className="layout">

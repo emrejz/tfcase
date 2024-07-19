@@ -3,7 +3,13 @@ import { useState, useEffect } from "react";
 import { DatePicker, Form, Input, Select } from "antd";
 import dayjs from "dayjs";
 import { Box, Button } from "../../../components";
-import { getGoal, editGoal, getUsers, getGoals } from "../../../services";
+import {
+  getGoal,
+  editGoal,
+  getUsers,
+  getGoals,
+  removeGoal,
+} from "../../../services";
 import { routePaths } from "../../../constants/routes";
 import { progressOptions } from "../utils";
 import "./index.scss";
@@ -64,8 +70,18 @@ export default function Index() {
       setLoading(false);
     }
   };
+
+  const handleRemove = async () => {
+    try {
+      await removeGoal(id);
+      navigate(routePaths.goals);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    alert(errorInfo);
   };
 
   return (
@@ -184,6 +200,9 @@ export default function Index() {
           </Form.Item>
         </Box>
         <Box className="form-footer">
+          <Button className="remove-btn" danger onClick={handleRemove}>
+            Remove
+          </Button>
           <Button disabled={loading} htmlType="submit">
             Save
           </Button>
