@@ -1,7 +1,9 @@
 .list {
   list-style-type: none;
   padding: 0;
-
+  span {
+    display: inline-block;
+  }
   a {
     text-decoration: none;
   }
@@ -41,6 +43,13 @@
     fill: #838b95;
     * {
       fill: #838b95;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .list {
+    span {
+      display: none;
     }
   }
 }
