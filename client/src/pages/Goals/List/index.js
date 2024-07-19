@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { NotFoundGoals } from "../components";
 import { Box, Button } from "../../../components";
 import { routePaths } from "../../../constants/routes";
 import { getGoals } from "../../../services";
-import { Detail, Hamburger, List, Three } from "../../../svgs";
+import { List, Three } from "../../../svgs";
+import { ThreeList, BasicList, NotFoundGoals } from "./components";
 import "./index.scss";
-import dayjs from "dayjs";
-import { Progress } from "antd";
 
 export default function Index() {
   const [goals, setGoals] = useState();
-  const [isThree, setIsThree] = useState(false);
+  const [isThree, setIsThree] = useState(true);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
@@ -56,36 +54,7 @@ export default function Index() {
             <span>List</span>
           </div>
         </Box>
-        {isThree ? (
-          <div>emre</div>
-        ) : (
-          <div className="goal-list">
-            {goals?.map((item) => (
-              <Box className="item" key={item?.id}>
-                <div className="left-side">
-                  <Hamburger />
-                  <img src="/assets/images/goal-title.png" alt="goal title" />
-                  <img src={item?.ownerImg} alt="goal title" />
-                  <div className="title">{item?.title}</div>
-                </div>
-                <div className="right-side">
-                  <div className="time-div">
-                    {item?.endDate
-                      ? dayjs(item?.endDate).format("MMM D, YYYY")
-                      : "-"}
-                  </div>
-                  <Progress
-                    className="progress"
-                    percent={item?.progress}
-                    status="active"
-                  />
-                  <div className="on-track">On track</div>
-                  <Detail />
-                </div>
-              </Box>
-            ))}
-          </div>
-        )}
+        {isThree ? <ThreeList goals={goals} /> : <BasicList goals={goals} />}
       </div>
     );
   }

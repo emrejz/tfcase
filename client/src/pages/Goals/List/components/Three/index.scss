@@ -1,0 +1,73 @@
+.node-card {
+  padding: 26px;
+  width: 320px;
+  gap: 8px;
+
+  .box-cnt {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .left {
+      align-items: center;
+      display: flex;
+      gap: 8px;
+      img {
+        width: 24px;
+        height: 24px;
+      }
+      div {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #606b79;
+      }
+    }
+    .right {
+      align-items: center;
+      display: flex;
+      gap: 8px;
+      div {
+        padding: 4px 9px 4px;
+        height: 24px;
+        background: #c1d3fe;
+        border-radius: 42px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #0c46d0;
+      }
+    }
+    .title {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: #233043;
+    }
+  }
+  .footer-side {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    div {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: #606b79;
+    }
+    img {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+    }
+  }
+}

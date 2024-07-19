@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { Button } from "../../../../components";
-import { routePaths } from "../../../../constants/routes";
+import { Button } from "../../../../../components";
+import { routePaths } from "../../../../../constants/routes";
 import "./index.scss";
 
 export default function Index() {
