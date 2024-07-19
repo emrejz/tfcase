@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { DatePicker, Form, Input, Select } from "antd";
 import dayjs from "dayjs";
+import { toast } from "react-toastify";
 import { Box, Button } from "../../../components";
 import {
   getGoal,
@@ -40,7 +41,7 @@ export default function Index() {
         setGoals(goalsData);
         setUsers(userData);
       } catch (error) {
-        alert(error.message);
+        toast.warn(error.message);
       }
     };
     if (id) {
@@ -65,7 +66,7 @@ export default function Index() {
       await editGoal(goal?.id, { ...values, ownerImg });
       navigate(routePaths.goals);
     } catch (error) {
-      alert(error.message);
+      toast.warn(error.message);
     } finally {
       setLoading(false);
     }
@@ -76,12 +77,12 @@ export default function Index() {
       await removeGoal(id);
       navigate(routePaths.goals);
     } catch (error) {
-      alert(error.message);
+      toast.warn(error.message);
     }
   };
 
   const onFinishFailed = (errorInfo) => {
-    alert(errorInfo);
+    toast.warn(errorInfo);
   };
 
   return (

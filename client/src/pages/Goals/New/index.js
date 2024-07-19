@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { DatePicker, Form, Input, Select } from "antd";
+import { toast } from "react-toastify";
 import { Box, Button } from "../../../components";
 import { getUsers, getGoals, postGoal } from "../../../services";
 import { routePaths } from "../../../constants/routes";
@@ -24,7 +25,7 @@ export default function Index() {
         setGoals(goalData);
         setUsers(userData);
       } catch (error) {
-        alert(error.message);
+        toast.warn(error.message);
       }
     };
 
@@ -45,7 +46,7 @@ export default function Index() {
       await postGoal({ ...values, ownerImg });
       navigate(routePaths.goals);
     } catch (error) {
-      alert(error.message);
+      toast.warn(error.message);
     } finally {
       setLoading(false);
     }

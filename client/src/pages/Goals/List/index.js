@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Box, Button } from "../../../components";
 import { routePaths } from "../../../constants/routes";
 import { getGoals } from "../../../services";
@@ -18,7 +19,7 @@ export default function Index() {
         const data = await getGoals();
         setGoals(data);
       } catch (error) {
-        alert(error.message);
+        toast.warn(error.message);
       } finally {
         setLoading(false);
       }
