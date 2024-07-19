@@ -30,7 +30,7 @@ export default function Index() {
   if (loading) {
     return <h2>loading...</h2>;
   }
-  if (goals) {
+  if (goals?.length) {
     return (
       <div className="goal-list-container">
         <div className="head">
